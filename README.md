@@ -1,16 +1,12 @@
-# sushi_snap
+# Sushi Snap
 
-A new Flutter project.
+Get ready to tantalize taste buds and delight users with this visually stunning and user-friendly Sushi Flutter UI app! This open-source project provides a robust foundation for building a captivating mobile application for sushi restaurants or enthusiasts.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+**Getting Started:**
 
-A few resources to get you started if this is your first Flutter project:
+Excited to dive in? Follow these simple steps:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the Repository:** Use `git clone https://github.com/atharvadhurwey/sushi-snap-flutter-app.git` to get started.
+2. **Install Dependencies:** Run `flutter pub get` to install the required Flutter packages.
+3. **Run the App:** Execute `flutter run` to bring your Sushi UI app to life!
