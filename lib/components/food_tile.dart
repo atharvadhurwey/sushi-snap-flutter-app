@@ -26,13 +26,13 @@ class FoodTile extends StatelessWidget {
             Center(
               child: Image.asset(food.imagePath, height: 140),
             ),
-      
+
             // Food Name
             Text(
               food.name,
               style: GoogleFonts.dmSerifDisplay(fontSize: 20),
             ),
-      
+
             // Food Price and Rating
             SizedBox(
               width: 160,
@@ -47,17 +47,17 @@ class FoodTile extends StatelessWidget {
                       color: Colors.grey[700],
                     ),
                   ),
-      
+
                   // Rating
                   Row(
                     children: [
                       Icon(
                         Icons.star,
-                        color: Colors.yellow[800],
+                        color: Colors.yellow[800]
                       ),
                       Text(
                         food.rating,
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     ],
                   )

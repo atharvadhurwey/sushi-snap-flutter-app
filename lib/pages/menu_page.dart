@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:sushi_snap/components/button.dart';
 import 'package:sushi_snap/components/food_tile.dart';
-import 'package:sushi_snap/models/food.dart';
+import 'package:sushi_snap/models/shop.dart';
 import 'package:sushi_snap/pages/food_details_page.dart';
 import 'package:sushi_snap/theme/colors.dart';
 
@@ -14,27 +15,12 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  // food menu
-  List foodMenu = [
-    // Nigiri Sushi
-    Food(
-      name: "Nigiri Sushi",
-      price: "21.00",
-      imagePath: "lib/images/nigiri_sushi.png",
-      rating: "4.5",
-    ),
-
-    // Sashimi
-    Food(
-      name: "Uramaki",
-      price: "23.00",
-      imagePath: "lib/images/uramaki.png",
-      rating: "4.9",
-    ),
-  ];
-
   // navigate to food item details page
   void navigateToFoodItemDetails(int index) {
+    // get the food item
+    final shop = context.read<Shop>();
+    final foodMenu = shop.foodMenu;
+
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -47,20 +33,29 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    // get the food item
+    final shop = context.read<Shop>();
+    final foodMenu = shop.foodMenu;
+
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
+        foregroundColor: Colors.grey[800],
         elevation: 0,
-        leading: Icon(
-          Icons.menu,
-          color: Colors.grey[900],
-        ),
-        title: Text(
-          'Tokyo',
-          style: TextStyle(color: Colors.grey[900]),
-        ),
+        leading: const Icon(Icons.menu),
+        title: const Text('Tokyo'),
+        actions: [
+          // cart button
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/cartpage');
+            },
+            icon: const Icon(Icons.shopping_cart),
+          ),
+          const SizedBox(width: 20.0),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,15 +111,15 @@ class _MenuPageState extends State<MenuPage> {
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 hintText: "Search for food",

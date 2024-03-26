@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi_snap/theme/colors.dart';
 
 class MyButton extends StatelessWidget {
   final String text;
@@ -11,28 +12,23 @@ class MyButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xFFFF6767),
-          borderRadius: BorderRadius.circular(40.0),
+          color: secondaryColor,
+          borderRadius: BorderRadius.circular(40.0)
         ),
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Text
+            // button text
             Text(
               text,
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: const TextStyle(color: Colors.white),
             ),
 
             const SizedBox(width: 10.0),
 
-            // Icon
-            Icon(
-              Icons.arrow_forward,
-              color: Colors.white,
-            )
+            // button icon
+            const Icon(Icons.arrow_forward, color: Colors.white)
           ],
         ),
       ),
