@@ -185,7 +185,7 @@ class _FoodItemDetailsPageState extends State<FoodItemDetailsPage> {
                       children: [
                         // minus button
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: secondaryColor,
                             shape: BoxShape.circle,
                           ),
@@ -215,7 +215,7 @@ class _FoodItemDetailsPageState extends State<FoodItemDetailsPage> {
 
                         // plus button
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: secondaryColor,
                             shape: BoxShape.circle,
                           ),
