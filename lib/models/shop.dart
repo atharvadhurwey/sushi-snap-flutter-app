@@ -3,20 +3,31 @@ import 'package:sushi_snap/models/food.dart';
 
 class Shop extends ChangeNotifier {
   final List<Food> _foodMenu = [
-    // Nigiri Sushi
+    // Salmon Sushi
     Food(
-      name: "Nigiri Sushi",
+      name: "Salmon Sushi",
       price: "21.00",
-      imagePath: "lib/images/nigiri_sushi.png",
+      imagePath: "lib/images/food/salmon/salmonSushi.png",
       rating: "4.5",
+      category: "Sushi+Salmon",
     ),
 
-    // Sashimi
+    // Sushi
     Food(
-      name: "Uramaki",
+      name: "Original Sushi",
       price: "23.00",
-      imagePath: "lib/images/uramaki.png",
+      imagePath: "lib/images/food/sushi/sushi.png",
       rating: "4.9",
+      category: "Sushi+Rice",
+    ),
+
+    // Green Tea
+    Food(
+      name: "Green Tea",
+      price: "23.00",
+      imagePath: "lib/images/food/drinks/greenTea.png",
+      rating: "4.9",
+      category: "Drinks",
     ),
   ];
 

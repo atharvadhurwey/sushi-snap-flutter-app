@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sushi_snap/components/category_tile.dart';
+import 'package:sushi_snap/components/food_tile.dart';
 import 'package:sushi_snap/models/shop.dart';
 import 'package:sushi_snap/pages/food_details_page.dart';
 import 'package:sushi_snap/theme/colors.dart';
@@ -35,7 +35,7 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     // get the food item
     final shop = context.read<Shop>();
-    // final foodMenu = shop.foodMenu;
+    final foodMenu = shop.foodMenu;
     final categoryList = shop.categoryList;
 
     return Container(
@@ -72,48 +72,6 @@ class _MenuPageState extends State<MenuPage> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // promo banner
-            // Container(
-            //   decoration: BoxDecoration(
-            //     color: primaryColor,
-            //     borderRadius: BorderRadius.circular(20),
-            //   ),
-            //   margin: const EdgeInsets.symmetric(horizontal: 25),
-            //   padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Column(
-            //         crossAxisAlignment: CrossAxisAlignment.start,
-            //         children: [
-            //           // promo message
-            //           Text(
-            //             "Get 32% Promo",
-            //             style: GoogleFonts.dmSerifDisplay(
-            //               fontSize: 20,
-            //               color: Colors.white,
-            //             ),
-            //           ),
-
-            //           const SizedBox(height: 20),
-
-            //           // redeem button
-            //           MyButton(
-            //             text: 'Redeem',
-            //             onTap: () {},
-            //           ),
-            //         ],
-            //       ),
-
-            //       // image
-            //       Image.asset(
-            //         'lib/images/sashimi.png',
-            //         height: 100.0,
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
             // Starting Message
             Padding(
               padding:
@@ -185,7 +143,7 @@ class _MenuPageState extends State<MenuPage> {
                   ),
                 ),
 
-                const SizedBox(height: 6.0),
+                const SizedBox(height: 5.0),
 
                 // categories
                 SizedBox(
@@ -206,6 +164,98 @@ class _MenuPageState extends State<MenuPage> {
                     },
                   ),
                 ),
+              ],
+            ),
+
+            const SizedBox(height: 10),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Text(
+                    "Popular Meals",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[800],
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5.0),
+                Container(
+                  height: 274,
+                  child: ListView.separated(
+                    padding: EdgeInsets.all(25),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: foodMenu.length,
+                    separatorBuilder: (context, _) => const SizedBox(width: 10),
+                    itemBuilder: (context, index) => FoodTile(
+                      food: foodMenu[index],
+                      onTap: () {},
+                    ),
+                  ),
+                ),
+
+                // Container(
+                //   decoration: BoxDecoration(
+                //     color: Colors.white,
+                //     borderRadius: BorderRadius.circular(20),
+                //     boxShadow: [
+                //       BoxShadow(
+                //         color: Colors.grey.withOpacity(0.5),
+                //         spreadRadius: 3,
+                //         blurRadius: 10,
+                //         offset: Offset(0, 3),
+                //       )
+                //     ],
+                //   ),
+                //   child: Padding(
+                //     padding: EdgeInsets.symmetric(horizontal: 10),
+                //     child: Column(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: [
+                //         Container(
+                //           alignment: Alignment.center,
+                //           child: Image.asset(
+                //             "lib/images/food/salmon/salmonSushi.png",
+                //             height: 150,
+                //           ),
+                //         ),
+                //         Text(
+                //           "Salmon Sushi",
+                //           style: TextStyle(
+                //             fontSize: 23,
+                //             fontWeight: FontWeight.bold,
+                //           ),
+                //         ),
+                //         SizedBox(height: 10),
+                //         Row(
+                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //           children: [
+                //             Text(
+                //               "Salmon+Sushi",
+                //               style: TextStyle(
+                //                 fontSize: 18,
+                //                 color: Colors.grey,
+                //                 fontWeight: FontWeight.bold,
+                //               ),
+                //             ),
+                //             Text(
+                //               "4.9",
+                //               style: TextStyle(
+                //                 fontSize: 18,
+                //                 color: Colors.grey,
+                //                 fontWeight: FontWeight.bold,
+                //               ),
+                //             )
+                //           ],
+                //         )
+                //       ],
+                //     ),
+                //   ),
+                // )
               ],
             ),
 

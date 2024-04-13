@@ -4,6 +4,7 @@ import 'package:sushi_snap/models/shop.dart';
 import 'package:sushi_snap/pages/cart_page.dart';
 import 'package:sushi_snap/pages/intro_page.dart';
 import 'package:sushi_snap/pages/menu_page.dart';
+import 'package:sushi_snap/utils/theme/theme.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -19,7 +20,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.system,
+      theme: SAppTheme.lightTheme,
+      darkTheme: SAppTheme.darkTheme,
+
       debugShowCheckedModeBanner: false,
+      
       home: const MenuPage(),
       routes: {
         '/intropage': (context) => const IntroPage(),
